@@ -8,6 +8,8 @@ class GachasController < ApplicationController
   end
 
   def draw
-    render json: { message: 'Implement me!' }
+    gacha = Gacha.find(params[:id])
+
+    render json: gacha.gacha_contents.sample.contentable
   end
 end
