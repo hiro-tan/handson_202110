@@ -1,0 +1,10 @@
+AllCops:
+  Exclude:
+    - 'db/migrate/*'
+  NewCops: enable
+    
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false

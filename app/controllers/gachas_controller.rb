@@ -8,6 +8,6 @@ class GachasController < ApplicationController
   end
 
   def draw
-    render json: { message: "Implement me!" }
+    render json: { message: 'Implement me!' }
   end
 end
