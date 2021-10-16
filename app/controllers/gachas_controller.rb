@@ -10,6 +10,6 @@ class GachasController < ApplicationController
   def draw
     gacha = Gacha.find(params[:id])
 
-    render json: gacha.gacha_contents.sample.contentable
+    render json: gacha.lottery_contentable
   end
 end
