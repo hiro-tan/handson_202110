@@ -1,7 +1,37 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require "csv"
+
+Gacha.delete_all
+CSV.foreach("db/seeds/gachas.csv", headers: true) do |row|
+  Gacha.create(
+    id: row["id"],
+    gacha_content_group_id: row["gacha_content_group_id"],
+    name: row["name"],
+  )
+end
+
+Weapon.delete_all
+CSV.foreach("db/seeds/weapons.csv", headers: true) do |row|
+  Weapon.create(
+    id: row["id"],
+    name: row["name"],
+  )
+end
+
+Armor.delete_all
+CSV.foreach("db/seeds/armors.csv", headers: true) do |row|
+  Armor.create(
+    id: row["id"],
+    name: row["name"],
+  )
+end
+
+GachaContent.delete_all
+CSV.foreach("db/seeds/gacha_contents.csv", headers: true) do |row|
+  GachaContent.create(
+    id: row["id"],
+    contentable_type: row["contentable_type"],
+    contentable_id: row["contentable_id"],
+    gacha_id: row["gacha_id"],
+    weight: row["weight"],
+  )
+end
