@@ -12,4 +12,13 @@ class GachasController < ApplicationController
 
     render json: gacha.lottery_contentable
   end
+
+  def draw_times
+    gacha = Gacha.find(params[:id])
+    resp = Array.new(10) do |_|
+      gacha.lottery_contentable
+    end
+
+    render json: { results: resp }
+  end
 end
