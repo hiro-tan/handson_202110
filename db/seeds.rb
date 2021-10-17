@@ -12,7 +12,8 @@ Weapon.delete_all
 CSV.foreach('db/seeds/weapons.csv', headers: true) do |row|
   Weapon.create(
     id: row['id'],
-    name: row['name']
+    name: row['name'],
+    rarity: row['rarity']
   )
 end
 
@@ -20,7 +21,8 @@ Armor.delete_all
 CSV.foreach('db/seeds/armors.csv', headers: true) do |row|
   Armor.create(
     id: row['id'],
-    name: row['name']
+    name: row['name'],
+    rarity: row['rarity']
   )
 end
 
