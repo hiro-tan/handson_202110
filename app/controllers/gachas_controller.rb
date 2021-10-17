@@ -14,9 +14,12 @@ class GachasController < ApplicationController
   end
 
   def draw_times
-    gacha = Gacha.find(params[:id])
-    resp = Array.new(10) do |_|
-      gacha.lottery_contentable
+    times = 10
+
+    contents = Gacha.find(params[:id]).gacha_contents
+    contents_more_than_epic = contents.filter { |c| c.contentable.rarity > 0 }
+    resp = Array.new(times) do |i|
+      GachaContent.lottery_contentable(i + 1 == times ? contents_more_than_epic : contents)
     end
 
     render json: { results: resp }
