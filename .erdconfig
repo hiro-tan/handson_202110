@@ -1,0 +1,10 @@
+attributes:
+  - content
+  - foreign_key
+  - primary_key
+polymorphism: true
+only:
+  - Gacha
+  - GachaContent
+  - Weapon
+  - Armor
