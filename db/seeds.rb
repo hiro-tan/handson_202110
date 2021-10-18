@@ -4,7 +4,6 @@ Gacha.delete_all
 CSV.foreach('db/seeds/gachas.csv', headers: true) do |row|
   Gacha.create(
     id: row['id'],
-    gacha_content_group_id: row['gacha_content_group_id'],
     name: row['name']
   )
 end
