@@ -14,6 +14,7 @@ end
 
 group :development do
   gem 'listen', '~> 3.3'
+  gem 'rails-erd'
   gem 'rubocop', require: false
   gem 'spring'
 end
